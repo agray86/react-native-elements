@@ -97,7 +97,23 @@ class Input extends Component {
               {renderNode(Icon, leftIcon)}
             </View>
           )}
-
+          {mask && (
+            <TextInputMask
+              ref={this._inputRef}
+              underlineColorAndroid="transparent"
+              style={[styles.input, inputStyle]}
+              {...attributes}
+              mask={mask}
+            />
+          )}
+          {!mask && (
+            <TextInput
+              {...attributes}
+              ref={this._inputRef}
+              underlineColorAndroid="transparent"
+              style={[styles.input, inputStyle]}
+            />
+          )}
           {rightIcon && (
             <View style={[styles.iconContainer, rightIconContainerStyle]}>
               {renderNode(Icon, rightIcon)}
