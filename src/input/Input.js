@@ -12,6 +12,8 @@ import {
   Platform,
 } from 'react-native';
 
+import TextInputMask from 'react-native-text-input-mask';
+
 import ViewPropTypes from '../config/ViewPropTypes';
 import nodeType from '../helpers/nodeType';
 import fonts from '../config/fonts';
@@ -66,6 +68,7 @@ class Input extends Component {
       errorMessage,
       labelStyle,
       label,
+      mask,
       ...attributes
     } = this.props;
     const translateX = this.shakeAnimationValue.interpolate({
@@ -94,12 +97,7 @@ class Input extends Component {
               {renderNode(Icon, leftIcon)}
             </View>
           )}
-          <TextInput
-            {...attributes}
-            ref={this._inputRef}
-            underlineColorAndroid="transparent"
-            style={[styles.input, inputStyle]}
-          />
+
           {rightIcon && (
             <View style={[styles.iconContainer, rightIconContainerStyle]}>
               {renderNode(Icon, rightIcon)}
